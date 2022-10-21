@@ -1,0 +1,41 @@
+@use "../abstracts/function.scss" as fun;
+@use "../abstracts/mixins.scss" as mix;
+@use "../utils/vars.scss" as vars;
+
+.alert {
+  width: 500px;
+  height: 300px;
+  border-radius: 4px;
+  @include mix.position(absolute, 50%, 50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: map-get(
+    $map: vars.$natural,
+    $key: "lightGrayishBlueSecond"
+  );
+  border: 2px solid map-get($map: vars.$natural, $key: "veryDarkBlue");
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: vars.$transitioDuaration;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: map-get($map: vars.$natural, $key: "veryDarkBlue");
+    margin: 60px 0 40px 0;
+  }
+  .close {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: map-get($map: vars.$natural, $key: "veryDarkBlue");
+    text-align: center;
+    @include mix.position(absolute, 10px, 10px);
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass app/src/scss/main.scss app/public/dist/styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akrambzgh/Password-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akrambzgh/Password-Generator/issues"
+  },
+  "homepage": "https://github.com/akrambzgh/Password-Generator#readme",
+  "dependencies": {
+    "dart-sass": "^1.25.0",
+    "sass": "^1.55.0",
+    "scss": "^0.2.4"
+  }
+}
