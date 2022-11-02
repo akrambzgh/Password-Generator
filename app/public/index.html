@@ -3,11 +3,103 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../" />
     <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./dist/all.min.css" />
+
+    <link rel="stylesheet" href="./dist/styles.css" />
+
+    <script src="../src/js/app.js" defer></script>
   </head>
   <body>
-    <i class="fa-sharp fa-solid fa-house"></i>
+    <main>
+      <h2>Password Generator</h2>
+      <header>
+        <div class="password">
+          <input type="text" value="PTx1f5DaFX" id="password-input" />
+        </div>
+        <div class="copy-to-clipboard">
+          <button class="copy-btn">
+            <i class="fa-sharp fa-solid fa-paste"></i>
+          </button>
+        </div>
+      </header>
+      <div class="main-box">
+        <div class="password-length">
+          <div class="charecter-length">
+            <h2>Charecter Lenght</h2>
+            <h1 class="password-length-number">10</h1>
+          </div>
+          <div class="length-range">
+            <input
+              type="range"
+              value="10"
+              max="15"
+              min="10"
+              class="range-input"
+            />
+          </div>
+        </div>
+        <div class="includes">
+          <div data-include="first" class="include first">
+            <span class="checkbox">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <h3>include uppercase letters</h3>
+          </div>
+          <div data-include="second" class="include second">
+            <span class="checkbox">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <h3>include lowercase letters</h3>
+          </div>
+          <div data-include="third" class="include third">
+            <span class="checkbox">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <h3>include numbers</h3>
+          </div>
+          <div data-include="fourth" class="include fourth">
+            <span class="checkbox">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <h3>include symbols</h3>
+          </div>
+        </div>
+        <div class="password-strength">
+          <h3>strength</h3>
+          <div class="strength-level">
+            <span class="strength">what?</span>
+            <div class="levels">
+              <span data-strength="first" class="strength-box first-s"></span>
+              <span data-strength="second" class="strength-box second-s"></span>
+              <span data-strength="third" class="strength-box third-s"></span>
+              <span data-strength="fourth" class="strength-box fourth-s"></span>
+            </div>
+          </div>
+        </div>
+        <div class="generate">
+          <button class="generate-btn">
+            generate <i class="fa-sharp fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+    <div class="layer"></div>
+    <div class="alert danger-alert">
+      <h3>Danger Alert Message</h3>
+      <a class="close">&times;</a>
+    </div>
+    <div class="alert success-alert">
+      <h3>Success Alert Message</h3>
+      <a class="close">&times;</a>
+    </div>
   </body>
 </html>

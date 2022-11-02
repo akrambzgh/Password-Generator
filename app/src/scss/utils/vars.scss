@@ -1,20 +1,7 @@
-// Primary
-$primary: (
-  "Red": hsl(1, 90%, 64%),
-  "Blue": hsl(219, 85%, 26%),
-);
-
-// Neutral
-$natural: (
-  "White": hsl(0, 0%, 100%),
-  "veryLightGrayishBlue": hsl(210, 60%, 98%),
-  "lightGrayishBlueFirst": hsl(211, 68%, 94%),
-  "lightGrayishBlueSecond": hsl(205, 33%, 90%),
-  "grayishBlue": hsl(219, 14%, 63%),
-  "darkGrayishBlue": hsl(219, 12%, 42%),
-  "veryDarkBlue": hsl(224, 21%, 14%),
-);
-
-$transitioDuaration: 500ms;
-$smallBorderRadius: 15px;
-$bigBorderRadius: 30px;
+$lightGreen: hsl(127.25, 100%, 82.16%);
+$veryDrakGray: hsl(247.5, 10.26%, 15.29%);
+$lightGray: hsl(248.57, 13.73%, 90%);
+$graytext: hsl(210, 3.9%, 69.8%);
+$darkgray: hsl(217.5, 4.71%, 33.33%);
+$white: hsl(360, 100%, 100%);
+$transitioDuaration: 300ms;

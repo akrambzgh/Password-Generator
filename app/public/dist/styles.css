@@ -1,18 +1,348 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @forward "./notification.scss";
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   app\src\scss\components\_index.scss 1:1  @use
- *   app\src\scss\main.scss 4:1               root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @forward \"./notification.scss\";\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   app\\src\\scss\\components\\_index.scss 1:1  @use\a   app\\src\\scss\\main.scss 4:1               root stylesheet";
+html {
+  font-size: 100%;
+  line-height: 1.6;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.overlayer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+}
+.overlayer.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+input,
+button {
+  display: block;
+  border: none;
+  background: none;
+}
+input:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .conainer {
+    width: 95%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .conainer {
+    width: 95%;
+  }
+}
+@media (min-width: 1200px) {
+  .conainer {
+    width: 1170px;
+  }
+}
+.alert {
+  width: 50%;
+  margin: 20px auto;
+  padding: 30px;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px #ccc;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms;
+}
+.alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+.alert .close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  right: 15px;
+  top: 25px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
+.success-alert {
+  background-color: #a8f0c6;
+  border-left: 5px solid #178344;
+}
+.success-alert .close {
+  border-color: #178344;
+  color: #178344;
+}
+
+.danger-alert {
+  background-color: #f7a7a3;
+  border-left: 5px solid #8f130c;
+}
+.danger-alert .close {
+  border-color: #8f130c;
+  color: #8f130c;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-inline: 25px;
+}
+
+main {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  main {
+    width: 50%;
+  }
+}
+main > h2 {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: hsl(210deg, 3.9%, 69.8%);
+  text-align: center;
+  margin-bottom: 20px;
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background-color: hsl(247.5deg, 10.26%, 15.29%);
+  padding: 20px;
+  border-radius: 4px;
+}
+main header .password input {
+  cursor: cursor;
+  user-select: none;
+  width: 240.8px;
+  font-size: 18px;
+  color: hsl(0deg, 100%, 100%);
+  font-family: inherit;
+}
+@media (min-width: 992px) {
+  main header .password input {
+    font-size: 25px;
+  }
+}
+main header .copy-to-clipboard i {
+  font-size: 25px;
+  color: hsl(127.25deg, 100%, 82.16%);
+}
+main .main-box {
+  background-color: hsl(247.5deg, 10.26%, 15.29%);
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+main .main-box .password-length .charecter-length {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+main .main-box .password-length .charecter-length h2 {
+  color: hsl(0deg, 100%, 100%);
+  font-weight: 300;
+  font-size: 20px;
+}
+main .main-box .password-length .charecter-length h1 {
+  color: hsl(127.25deg, 100%, 82.16%);
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: -10px;
+}
+main .main-box .length-range input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+main .main-box .length-range input[type=range]:focus {
+  outline: none;
+}
+main .main-box .length-range input[type=range]:focus::-webkit-slider-runnable-track {
+  background: hsl(127.25deg, 100%, 82.16%);
+}
+main .main-box .length-range input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: hsl(127.25deg, 100%, 82.16%);
+  border-radius: 7.5px;
+}
+main .main-box .length-range input[type=range]::-webkit-slider-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+  background: hsl(0deg, 100%, 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10px;
+}
+main .main-box .includes .include {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+main .main-box .includes .include span {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border: 2px solid hsl(0deg, 100%, 100%);
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  transition: 300ms;
+}
+main .main-box .includes .include span i {
+  display: none;
+}
+main .main-box .includes .include span.check {
+  background-color: hsl(127.25deg, 100%, 82.16%);
+  border: 2px solid hsl(127.25deg, 100%, 82.16%);
+}
+main .main-box .includes .include span.check i {
+  font-size: 25px;
+  color: hsl(247.5deg, 10.26%, 15.29%);
+  display: block;
+}
+main .main-box .includes .include h3 {
+  color: hsl(0deg, 100%, 100%);
+  font-weight: 300;
+  font-size: 19px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+main .main-box .password-strength {
+  background-color: #000;
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+main .main-box .password-strength h3 {
+  color: hsl(210deg, 3.9%, 69.8%);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+main .main-box .password-strength .strength-level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+main .main-box .password-strength .strength-level span.strength {
+  color: hsl(0deg, 100%, 100%);
+  font-weight: 400;
+  font-size: 18px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  transition: 300ms;
+}
+main .main-box .password-strength .strength-level .levels span.strength-box {
+  display: inline-block;
+  width: 10px;
+  height: 40px;
+  border: 2px solid hsl(0deg, 100%, 100%);
+  transition: 300ms;
+}
+main .main-box .password-strength .strength-level .levels span.strength-box:not(:last-child) {
+  margin-right: 2px;
+}
+main .main-box .password-strength .strength-level .levels span.strength-box.strength-check {
+  background-color: hsl(127.25deg, 100%, 82.16%);
+}
+main .main-box .generate {
+  margin-top: 30px;
+}
+main .main-box .generate button {
+  background-color: hsl(127.25deg, 100%, 82.16%);
+  width: 100%;
+  padding-block: 15px;
+  color: hsl(247.5deg, 10.26%, 15.29%);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.layer {
+  width: 259.8px;
+  height: 26px;
+  background-color: transparent;
+  position: absolute;
+  left: 45px;
+  top: 212px;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .layer {
+    height: 32px;
+    left: 418px;
+    top: 165px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

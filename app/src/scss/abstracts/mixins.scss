@@ -4,12 +4,7 @@
   align-items: $al;
   flex-direction: $fd;
 }
-@mixin imageDefaults($img-url) {
-  background-image: url($img-url);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-}
+
 @mixin largeScreen() {
   @media (min-width: 992px) {
     @content;
@@ -20,4 +15,16 @@
   position: $ps;
   top: $tp;
   left: $lf;
+}
+
+@mixin alert($name, $bgColor) {
+  $accentColor: darken($bgColor, 50);
+  .#{$name} {
+    background-color: #{$bgColor};
+    border-left: 5px solid $accentColor;
+    .close {
+      border-color: $accentColor;
+      color: $accentColor;
+    }
+  }
 }

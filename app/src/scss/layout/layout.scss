@@ -1,3 +1,206 @@
 @use "../abstracts/function.scss" as fun;
 @use "../abstracts/mixins.scss" as mix;
 @use "../utils/vars.scss" as vars;
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  @include mix.flex(center, center, row);
+  padding-inline: 25px;
+}
+
+main {
+  width: 100%;
+  @include mix.largeScreen() {
+    width: 50%;
+  }
+  & > h2 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: vars.$graytext;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  header {
+    @include mix.flex(space-between, center, row);
+    background-color: vars.$veryDrakGray;
+    padding: 20px;
+    border-radius: 4px;
+    .password {
+      input {
+        cursor: cursor;
+        user-select: none;
+        width: 240.8px;
+        font-size: 18px;
+        @include mix.largeScreen() {
+          font-size: 25px;
+        }
+        color: vars.$white;
+        font-family: inherit;
+      }
+    }
+    .copy-to-clipboard {
+      i {
+        font-size: 25px;
+        color: vars.$lightGreen;
+      }
+    }
+  }
+  .main-box {
+    background-color: vars.$veryDrakGray;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    .password-length {
+      .charecter-length {
+        @include mix.flex(space-between, flex-start, row);
+        h2 {
+          color: vars.$white;
+          font-weight: 300;
+          font-size: 20px;
+        }
+        h1 {
+          color: vars.$lightGreen;
+          font-weight: 700;
+          font-size: 32px;
+          margin-top: -10px;
+        }
+      }
+    }
+    .length-range {
+      input[type="range"] {
+        -webkit-appearance: none;
+        margin: 18px 0;
+        width: 100%;
+        &:focus {
+          outline: none;
+          &::-webkit-slider-runnable-track {
+            background: vars.$lightGreen;
+          }
+        }
+        &::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 10px;
+          cursor: pointer;
+          background: vars.$lightGreen;
+          border-radius: 7.5px;
+        }
+        &::-webkit-slider-thumb {
+          height: 30px;
+          width: 30px;
+          border-radius: 3px;
+          background: vars.$white;
+          border-radius: 50%;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -10px;
+        }
+      }
+    }
+    .includes {
+      .include {
+        margin-bottom: 10px;
+        @include mix.flex(flex-start, center, row);
+
+        span {
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          border: 2px solid vars.$white;
+          margin-right: 10px;
+          @include mix.flex(center, center, row);
+          cursor: pointer;
+          transition: vars.$transitioDuaration;
+          i {
+            display: none;
+          }
+          &.check {
+            background-color: vars.$lightGreen;
+            border: 2px solid vars.$lightGreen;
+            i {
+              font-size: 25px;
+              color: vars.$veryDrakGray;
+              display: block;
+            }
+          }
+        }
+        h3 {
+          color: vars.$white;
+          font-weight: 300;
+          font-size: 19px;
+          text-transform: capitalize;
+          cursor: pointer;
+        }
+      }
+    }
+    .password-strength {
+      background-color: #000;
+      border-radius: 4px;
+      padding: 5px 10px;
+      @include mix.flex(space-between, center, row);
+      h3 {
+        color: vars.$graytext;
+        font-weight: 700;
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+      .strength-level {
+        @include mix.flex(space-between, center, row);
+
+        span.strength {
+          color: vars.$white;
+          font-weight: 400;
+          font-size: 18px;
+          margin-right: 5px;
+          text-transform: uppercase;
+          transition: vars.$transitioDuaration;
+        }
+        .levels {
+          span.strength-box {
+            display: inline-block;
+            width: 10px;
+            height: 40px;
+            border: 2px solid vars.$white;
+            transition: vars.$transitioDuaration;
+            &:not(:last-child) {
+              margin-right: 2px;
+            }
+            &.strength-check {
+              background-color: vars.$lightGreen;
+            }
+          }
+        }
+      }
+    }
+    .generate {
+      margin-top: 30px;
+      button {
+        background-color: vars.$lightGreen;
+        width: 100%;
+        padding-block: 15px;
+        color: vars.$veryDrakGray;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.layer {
+  width: 259.8px;
+  height: 26px;
+  background-color: transparent;
+  position: absolute;
+  left: 45px;
+  top: 212px;
+  cursor: pointer;
+  @include mix.largeScreen() {
+    height: 32px;
+    left: 418px;
+    top: 165px;
+  }
+}
